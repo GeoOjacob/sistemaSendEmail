@@ -33,7 +33,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span> Campanhas <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="categorias.php">Gerenciar Campanhas</a></li>
+              <li><a href="campanhas.php">Gerenciar Campanhas</a></li>
               <li><a href="criarCampanhas.php">Criar Campanha</a></li>
             </ul>
           </li>
@@ -58,6 +58,12 @@
           <li class="dropdown" >
             <a href="#" style="color: red"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Usuario:   <span class="caret"></span></a>
             <ul class="dropdown-menu">
+
+
+                <?php if($_SESSION['usuario'] == "admin"): ?>
+              <li> <a href="usuarios.php"><span class="glyphicon glyphicon-off"></span> Gestão de Usuário</a></li>
+                <?php endif; ?>
+
               <li> <a style="color: red" href="../procedimentos/sair.php"><span class="glyphicon glyphicon-off"></span> Sair</a></li>
               
             </ul>
