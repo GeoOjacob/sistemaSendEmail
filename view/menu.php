@@ -34,7 +34,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span> Campanhas <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="campanhas.php">Gerenciar Campanhas</a></li>
-              <li><a href="criarCampanhas.php">Criar Campanha</a></li>
+              <li><a href="produtos.php">Criar Campanha</a></li>
             </ul>
           </li>
 

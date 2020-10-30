@@ -13,33 +13,40 @@ if(isset($_SESSION['usuario'])){
 		<?php require_once "../classes/conexao.php"; 
 		$c= new conectar();
 		$conexao=$c->conexao();
-		$sql="SELECT id_categoria,nome_categoria
-		from categorias";
+		$sql="SELECT id_campanha,nome
+		from campanhas";
 		$result=mysqli_query($conexao,$sql);
+
+		$sql="SELECT id_filtro,nome_filtro
+		from filtros";
+		$result2=mysqli_query($conexao,$sql);
 		?>
 	</head>
 	<body>
 		<div class="container">
-			<h1>Produtos</h1>
+		<h1>Configurar Campanha em teste</h1>
 			<div class="row">
 				<div class="col-sm-4">
 					<form id="frmProdutos" enctype="multipart/form-data">
-						<label>Categoria</label>
-						<select class="form-control input-sm" id="categoriaSelect" name="categoriaSelect">
-							<option value="A">Selecionar Categoria</option>
+						<label>Campanha</label>
+						<select class="form-control input-sm" id="campanhaSelect" name="campanhaSelect">
+							<option value="A">Selecionar Campanha</option>
 							<?php while($mostrar=mysqli_fetch_row($result)): ?>
 								<option value="<?php echo $mostrar[0] ?>"><?php echo $mostrar[1]; ?></option>
 							<?php endwhile; ?>
 						</select>
-						<label>Nome</label>
-						<input type="text" class="form-control input-sm" id="nome" name="nome">
+
+						<label>Filtro</label>
+						<select class="form-control input-sm" id="filtroSelect" name="filtroSelect">
+							<option value="B">Selecionar Filtro</option>
+							<?php while($mostrar=mysqli_fetch_row($result2)): ?>
+								<option value="<?php echo $mostrar[0] ?>"><?php echo $mostrar[1]; ?></option>
+							<?php endwhile; ?>
+						</select>
+
 						<label>Descrição</label>
 						<input type="text" class="form-control input-sm" id="descricao" name="descricao">
-						<label>Quantidade</label>
-						<input type="text" class="form-control input-sm" id="quantidade" name="quantidade">
-						<label>Preço</label>
-						<input type="text" class="form-control input-sm" id="preco" name="preco">
-						<label>Imagem</label>
+						<label>Conteúdo</label>
 						<input type="file" id="imagem" name="imagem">
 						<p></p>
 						<span id="btnAddProduto" class="btn btn-primary">Adicionar</span>
@@ -64,27 +71,35 @@ if(isset($_SESSION['usuario'])){
 					<div class="modal-body">
 						<form id="frmProdutosU" enctype="multipart/form-data">
 							<input type="text" id="idProduto" hidden="" name="idProduto">
-							<label>Categoria</label>
-							<select class="form-control input-sm" id="categoriaSelectU" name="categoriaSelectU">
-								<option value="A">Selecionar Categoria</option>
+							<label>Campanha</label>
+							<select class="form-control input-sm" id="campanhaSelectU" name="campanhaSelectU">
+								<option value="A">Selecionar Campanha</option>
 								<?php 
-								$sql="SELECT id_categoria,nome_categoria
-								from categorias";
+								$sql="SELECT id_campanha,nome
+								from campanhas";
 								$result=mysqli_query($conexao,$sql);
 								?>
 								<?php while($mostrar=mysqli_fetch_row($result)): ?>
 									<option value="<?php echo $mostrar[0] ?>"><?php echo $mostrar[1]; ?></option>
 								<?php endwhile; ?>
 							</select>
-							<label>Nome</label>
-							<input type="text" class="form-control input-sm" id="nomeU" name="nomeU">
+
+
+							<label>Filtro</label>
+							<select class="form-control input-sm" id="filtroSelectU" name="filtroSelectU">
+								<option value="B">Selecionar Filtro</option>
+								<?php 
+								$sql="SELECT id_filtro,nome_filtro
+								from filtros";
+								$result2=mysqli_query($conexao,$sql);
+								?>
+								<?php while($mostrar=mysqli_fetch_row($result2)): ?>
+									<option value="<?php echo $mostrar[0] ?>"><?php echo $mostrar[1]; ?></option>
+								<?php endwhile; ?>
+							</select>
+
 							<label>Descrição</label>
-							<input type="text" class="form-control input-sm" id="descricaoU" name="descricaoU">
-							<label>Quantidade</label>
-							<input type="text" class="form-control input-sm" id="quantidadeU" name="quantidadeU">
-							<label>Preço</label>
-							<input type="text" class="form-control input-sm" id="precoU" name="precoU">
-							
+							<input type="text" class="form-control input-sm" id="descricaoU" name="descricaoU">							
 						</form>
 					</div>
 					<div class="modal-footer">
@@ -108,11 +123,9 @@ if(isset($_SESSION['usuario'])){
 					
 					dado=jQuery.parseJSON(r);
 					$('#idProduto').val(dado['id_produto']);
-					$('#categoriaSelectU').val(dado['id_categoria']);
-					$('#nomeU').val(dado['nome']);
+					$('#campanhaSelectU').val(dado['id_campanha']);
+					$('#filtroSelectU').val(dado['id_filtro']);
 					$('#descricaoU').val(dado['descricao']);
-					$('#quantidadeU').val(dado['quantidade']);
-					$('#precoU').val(dado['preco']);
 
 				}
 			});
