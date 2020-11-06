@@ -52,7 +52,7 @@
 
            <li><a href="clientes.php"><span class="glyphicon glyphicon-user"></span> Base de Clientes</a>
           </li>
-          <li><a href="#"><span class="glyphicon glyphicon-usd"></span> Relatório</a>
+          <li><a href="envios.php"><span class="glyphicon glyphicon-usd"></span> Envios</a>
           </li>
           
           <li class="dropdown" >
