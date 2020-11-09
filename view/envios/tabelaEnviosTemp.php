@@ -40,3 +40,10 @@
  ?>
 
  </table>
+
+ <script type="text/javascript">
+ 	$(document).ready(function(){
+ 		nome="<?php echo @$cliente ?>";
+ 		$('#nomeclienteEnvio').text("Nome de cliente: " + nome);
+ 	});
+ </script>

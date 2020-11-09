@@ -24,7 +24,7 @@ if(isset($_SESSION['usuario'])){
 	</head>
 	<body>
 		<div class="container">
-		<h1>Configurar Campanha em teste</h1>
+		<h1>Configurar Campanha</h1>
 			<div class="row">
 				<div class="col-sm-4">
 					<form id="frmProdutos" enctype="multipart/form-data">

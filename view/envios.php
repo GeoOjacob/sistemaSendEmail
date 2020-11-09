@@ -18,7 +18,7 @@
 		 <div class="row">
 		 	<div class="col-sm-12">
 		 		<span class="btn btn-default" id="envioProdutosBtn">Enviar Campanha</span>
-		 		<span class="btn btn-default" id="enviosFeitasBtn">Lista de Campanha</span>
+		 		<span class="btn btn-default" id="enviosFeitasBtn">Lista de Envios</span>
 		 	</div>
 		 </div>
 		 <div class="row">

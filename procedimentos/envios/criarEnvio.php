@@ -6,8 +6,6 @@
 	
 	$obj= new envios();
 
-	
-
 	if(count($_SESSION['tabelaComprasTemp'])==0){
 		echo 0;
 	}else{

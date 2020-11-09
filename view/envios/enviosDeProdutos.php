@@ -110,29 +110,15 @@ require_once "../../classes/conexao.php";
 
 <script type="text/javascript">
 
-	function editarP(dados){
-		
-		$.ajax({
-			type:"POST",
-			data:"dados=" + dados,
-			url:"../procedimentos/envios/editarEstoque.php",
-			success:function(r){
-				
-				$('#tabelaEnviosTempLoad').load("envios/tabelaEnviosTemp.php");
-				alertify.success("Estoque Atualizado com Sucesso!!");
-			}
-		});
-	}
 
 	function criarEnvio(){
 		$.ajax({
 			url:"../procedimentos/envios/criarEnvio.php",
 			success:function(r){
-				
 				if(r > 0){
 					$('#tabelaEnviosTempLoad').load("envios/tabelaEnviosTemp.php");
 					$('#frmEnviosProdutos')[0].reset();
-					alertify.alert("Envio Criada com Sucesso!");
+					alertify.alert("Enviado com Sucesso!");
 				}else if(r==0){
 					alertify.alert("Não possui lista de Envios");
 				}else{

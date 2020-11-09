@@ -49,20 +49,21 @@ class envios{
 		for ($i=0; $i < count($dados) ; $i++) { 
 			$d=explode("||", $dados[$i]);
 
-			$sql="INSERT into vendas (id_envio,
+			$sql="INSERT into envios (id_envio,
 										id_campanha,
 										id_usuario,
 										id_filtro,
-										dataCompra,
+										quantidadeEnvio,
+										dataEnvio,
 										id_produto)
 							values ('$idenvio',
 									'$d[0]',
 									'$idusuario',
-									'$d[1]',
+									'$d[2]',
+									'$d[2]',
 									'$data',
-									'$idproduto')";
+									'$d[0]')";
 
-			
 			$r=$r + $result=mysqli_query($conexao,$sql);
 
 
@@ -76,7 +77,7 @@ class envios{
 		$c= new conectar();
 		$conexao=$c->conexao();
 
-		$sql="SELECT id_venda from vendas group by id_venda desc";
+		$sql="SELECT id_envio from envios group by id_envio desc";
 
 		$resul=mysqli_query($conexao,$sql);
 		$id=mysqli_fetch_row($resul)[0];
@@ -87,38 +88,31 @@ class envios{
 			return $id + 1;
 		}
 	}
-	public function nomeCliente($idCliente){
+	public function nomeCliente($idproduto){
 		$c= new conectar();
 		$conexao=$c->conexao();
 
 
-		 $sql="SELECT sobrenome,nome 
-			from clientes 
-			where id_cliente='$idCliente'";
+		 $sql="SELECT cam.nome 
+			from campanhas as cam
+			inner join envios as env
+			on env.id_campanha = cam.id_campanha";
 		$result=mysqli_query($conexao,$sql);
 
 		$ver=mysqli_fetch_row($result);
 
-		return $ver[1]." ".$ver[0];
 	}
 
-	public function obterTotal($idvenda){
+	public function obterTotal($idenvio){
 		$c= new conectar();
 		$conexao=$c->conexao();
 
 
-		$sql="SELECT total_venda 
-				from vendas 
-				where id_venda='$idvenda'";
+		$sql="SELECT quantidadeEnvio 
+				from envios 
+				where id_envio='$idenvio'";
 		$result=mysqli_query($conexao,$sql);
 
-		$total=0;
-
-		while($ver=mysqli_fetch_row($result)){
-			$total=$total + $ver[0];
-		}
-
-		return $total;
 	}
 }
 

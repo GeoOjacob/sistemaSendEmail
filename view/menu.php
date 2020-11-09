@@ -31,7 +31,7 @@
             
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span> Campanhas <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-duplicate"></span> Campanhas <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="campanhas.php">Gerenciar Campanhas</a></li>
               <li><a href="produtos.php">Criar Campanha</a></li>
@@ -50,9 +50,9 @@
        
 
 
-           <li><a href="clientes.php"><span class="glyphicon glyphicon-user"></span> Base de Clientes</a>
+           <li><a href="clientes.php"><span class="glyphicon glyphicon-th-list"></span> Base de Clientes</a>
           </li>
-          <li><a href="envios.php"><span class="glyphicon glyphicon-usd"></span> Envios</a>
+          <li><a href="envios.php"><span class="glyphicon glyphicon-envelope"></span> Envios</a>
           </li>
           
           <li class="dropdown" >
@@ -61,7 +61,7 @@
 
 
                 <?php if($_SESSION['usuario'] == "admin"): ?>
-              <li> <a href="usuarios.php"><span class="glyphicon glyphicon-off"></span> Gestão de Usuário</a></li>
+              <li> <a href="usuarios.php"><span class="glyphicon glyphicon-indent-left"></span> Gestão de Usuário</a></li>
                 <?php endif; ?>
 
               <li> <a style="color: red" href="../procedimentos/sair.php"><span class="glyphicon glyphicon-off"></span> Sair</a></li>

@@ -3,7 +3,7 @@
 require_once '../../lib/dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 
-$id=$_GET['idvenda'];
+$id=$_GET['idenvio'];
 
 function file_get_contents_curl($url) {
     $ch = curl_init();
@@ -18,7 +18,7 @@ function file_get_contents_curl($url) {
     return $dados;
 }
 
- $html=file_get_contents("http://localhost/sistema/view/vendas/relatorioVendaPdf.php?idvenda=".$id);
+ $html=file_get_contents("http://localhost/sistema/view/vendas/relatorioEnvioPdf.php?idenvio=".$id);
 
 
  
@@ -36,7 +36,7 @@ $pdf->load_html(utf8_decode($html));
 $pdf->render();
  
 // Enviamos pdf para navegador.
-$pdf->stream('relatorioVenda.pdf');
+$pdf->stream('relatorioEnvio.pdf');
 
 
 
